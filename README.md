@@ -85,7 +85,7 @@ ffprobe -version
 ## Example Workflow
 1. **Before**:
    ```
-   doctor.who.2023.s01e07.1080p.web.h264-newdoctorwhodis.mkv
+   doctor.who.s01e07.mkv
    ```
 2. **After**:
    ```
