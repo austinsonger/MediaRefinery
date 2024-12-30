@@ -74,7 +74,8 @@ def rename_files(session):
                 if info:
                     parsed_info = parse_media_info_from_filename(filename)
                     media_details = get_media_details(filepath, parsed_info)
-                    new_name = f"{info['name']}_{info['air_date'][:4]}_tmdb-{info['id']}_S{season}E{episode}_{media_details.get('resolution', '')}_{media_details.get('video_codec', '')}_{media_details.get('audio_codec', '')}.mkv"
+                    file_extension = os.path.splitext(filepath)[1]  # Get the file extension dynamically
+                    new_name = f"{info['name']}_{info['air_date'][:4]}_tmdb-{info['id']}_S{season}E{episode}_{media_details.get('resolution', '')}_{media_details.get('video_codec', '')}_{media_details.get('audio_codec', '')}{file_extension}"
                     old_path = filepath
                     new_path = os.path.join(root, new_name)
                     os.rename(old_path, new_path)
