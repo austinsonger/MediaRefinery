@@ -23,6 +23,79 @@ This script organizes and renames media files based on metadata fetched from the
 2. **FFmpeg** and **FFprobe**:
    - These tools are required to extract media file details.
 
+#### Install FFmpeg and FFprobe
+##### Linux (Ubuntu/Debian)
+```bash
+sudo apt update
+sudo apt install ffmpeg
+```
 
+##### macOS (Homebrew)
+```bash
+brew install ffmpeg
+```
+
+##### Windows
+1. Download FFmpeg from the [official website](https://ffmpeg.org/download.html).
+2. Extract the files.
+3. Add the `bin` directory to your system's PATH environment variable.
+
+##### Verify Installation
+Run the following commands to confirm installation:
+```bash
+ffmpeg -version
+ffprobe -version
+```
+
+---
+
+## Installation
+1. Clone or download this repository.
+2. Navigate to the project directory.
+3. Install the required Python dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+---
+
+## Usage
+1. Place the script in the directory containing the media files or specify the target directory in the script.
+2. Run the script:
+   ```bash
+   python script_name.py
+   ```
+3. If the script cannot determine the media title from the filename, it will fallback to the directory name and prompt for confirmation.
+
+---
+
+## Supported Features
+- Supports all video file formats (`.mkv`, `.mp4`, `.avi`, etc.).
+- Extracts detailed metadata:
+  - Resolution
+  - Video codec
+  - Audio codec
+- Renames files using the following format:
+  ```
+  {CleanTitle}_{ReleaseYear}_tmdb-{TmdbId}_S{Season}E{Episode}_{Resolution}_{VideoCodec}_{AudioCodec}.{Extension}
+  ```
+
+---
+
+## Example Workflow
+1. **Before**:
+   ```
+   doctor.who.2023.s01e07.1080p.web.h264-newdoctorwhodis.mkv
+   ```
+2. **After**:
+   ```
+   Doctor_Who_2023_tmdb-12345_S01E07_1080p_h264_aac.mkv
+   ```
+
+---
+
+## Notes
+- Ensure `ffmpeg` and `ffprobe` are installed and available in the system PATH.
+- The script relies on the TMDB API for accurate metadata. Ensure the API key is set in the script.
 
 
